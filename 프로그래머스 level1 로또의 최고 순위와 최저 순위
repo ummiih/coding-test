@@ -1,0 +1,14 @@
+def solution(lottos, win_nums):
+    score_count = 0
+    zero_count = 0
+    score = {6:1, 5:2, 4:3, 3:4, 2:5, 1:6, 0:6}
+    result = []
+    for number in lottos:
+        if number in win_nums:
+            score_count += 1
+        if number == 0:
+            zero_count += 1
+    result.append(score[zero_count + score_count])
+    result.append(score[score_count])
+    return result
+    

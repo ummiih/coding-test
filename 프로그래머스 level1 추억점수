@@ -1,0 +1,15 @@
+def solution(name, yearning, photo):
+    history = {}
+    total=[]
+    for i in range(len(name)):
+        history[name[i]] = yearning[i]
+    for p in photo:
+        result = []
+        for ps in p:
+            if ps in name:
+                result.append(history[ps])
+                # print(result)
+        total.append(sum(result))
+    return total
+        
+        

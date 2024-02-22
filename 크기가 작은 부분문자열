@@ -1,0 +1,9 @@
+def solution(t, p):
+    answer = 0
+    a=len(p)
+    for i in range(0,len(t)-len(p)+1):
+        t[i:len(p)+i]
+        n=t[i:len(p)+i]
+        if(int(p)>=int(n)):
+            answer+=1
+    return answer

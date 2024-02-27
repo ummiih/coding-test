@@ -1,0 +1,80 @@
+def solution(park, routes):
+    result = [0, 0]
+    obstacle = [0, 0]
+    obstacle_list = []
+    count = 0
+    
+    # 세로-남북 i, 가로-동서 j
+    # S값의 좌표를 result
+    # X값의 좌표들을 obstacle_list
+    for i, each_p in enumerate(park):
+        for j in range(len(each_p)):
+            if 'S' == each_p[j]:
+                result = [i, j]
+            if 'X' == each_p[j]:
+                obstacle = [i, j]
+                obstacle_list.append(obstacle)
+                
+    # print(result)
+    # print(obstacle_list)
+    
+                
+    # 좌표값 채우기
+    for route in routes:
+        count = 0
+        dir, dis_s = route.split() #dir 방향, dis 거리
+        dis = int(dis_s)
+        if dir == 'E':
+            for i in range(dis):
+                result[1] += 1
+                count += 1
+                if result[1] >= len(park[0]):
+                    result[1] -= count
+                    count = 0
+                    break
+                elif result in obstacle_list:
+                    result[1] -= count
+                    count = 0
+                    break
+        elif dir == 'W':
+            for i in range(dis):
+                result[1] -= 1
+                count += 1
+                if result[1] <= -1:
+                    result[1] += count
+                    count = 0
+                    break
+                elif result in obstacle_list:
+                    result[1] += count
+                    count = 0
+                    break
+        elif dir == 'S':
+            for i in range(dis):
+                result[0] += 1
+                count += 1
+                if result[0] >= len(park):
+                    result[0] -= count
+                    count = 0
+                    break
+                elif result in obstacle_list:
+                    result[0] -= count
+                    count = 0
+                    break
+        elif dir == 'N':
+            for i in range(dis):
+                result[0] -= 1
+                count +=1
+                if result[0] <= -1:
+                    result[0] += count
+                    count = 0
+                    break
+                elif result in obstacle_list:
+                    result[0] += count
+                    count = 0
+                    break
+                
+    # 마지막 칸 -1, -1로 초기화
+    if result == [len(park[0])-1, len(park)-1]:
+        result = [-1, -1]
+        
+    return result

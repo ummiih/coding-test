@@ -1,0 +1,28 @@
+def solution(keymap, targets):
+    new_key = {}
+    result = 0
+    result_list = []
+    for key in keymap:
+        for i, k in enumerate(key):
+            if k not in new_key:
+                new_key[k] = i+1
+                
+            else:
+                if new_key[k] > i+1:
+                    new_key[k] = i+1
+                else:
+                    pass
+    print(new_key)               
+    #자판 찍을 때 사용하는 코드
+    for target in targets:
+        for t in target:
+            if t in new_key:
+                print(t)
+                result += new_key[t]
+            else:
+                result = -1
+                break
+        result_list.append(result)
+        result = 0
+    return result_list
+                

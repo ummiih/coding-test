@@ -1,0 +1,20 @@
+def solution(s):
+    result = []
+    answer = []
+    count = -1
+    for i in range(len(s)):
+        index_s = []
+        if s[i] not in s[:i]:
+            result.append(-1)
+            print(result)
+        else:
+            count += 1
+            for j, k in enumerate(s[:i]):
+                if s[i] == k:
+                    index_s.append(i-j)
+            answer.append(index_s)
+            result.append(min(answer[count]))
+    return result
+                    
+                    
+            

@@ -1,0 +1,27 @@
+def solution(food):
+    num_list = [] #몫만 저장하는 리스트
+    result = ''
+    reverse_result = ''
+    for i, f in enumerate(food):
+        if i == 0:
+            num_list.append(f)
+        else:
+            num_list.append(f//2)
+    print(num_list)
+    for i, num in enumerate(num_list):
+        if i == 0:
+            pass
+        else:
+            for j in range(num):
+                result=result+str(i)
+    print(result)
+    for i in range(len(result)-1,-1,-1):
+        reverse_result=reverse_result+result[i]
+    print(reverse_result)
+    return result +'0'+ reverse_result
+        
+        
+    
+        
+        
+            

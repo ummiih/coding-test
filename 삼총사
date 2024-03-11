@@ -1,0 +1,11 @@
+from itertools import combinations
+def solution(number):
+    count = 0
+    list_a = list(combinations(number, 3))
+    for num in list_a:
+        if (num[0] + num[1] + num[2]) == 0:
+            count +=1
+    return count
+        
+    
+    

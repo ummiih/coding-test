@@ -1,0 +1,16 @@
+def solution(n):
+    answer = []
+    total = 0
+    while True:
+        if n<3:
+            return n
+        elif n//3<3:
+            answer.append(n%3)
+            answer.append(n//3)
+            break
+        else:
+            answer.append(n%3)
+            n = n//3
+    for i, k in enumerate(answer):
+        total += 3**(len(answer)-i-1) * k
+    return total

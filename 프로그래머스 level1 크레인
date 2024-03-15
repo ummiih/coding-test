@@ -1,0 +1,38 @@
+def solution(board, moves):
+    new_board_dict = {}
+    result_list = []
+    index = 0
+    count = 0
+    
+    for i in range(len(board)):
+        new_board_dict[i+1] = []
+
+    for i in range(len(board)):
+        for each_board in board:
+            new_board_dict[i+1].append(each_board[i])
+    
+    for move in moves:
+        for number in new_board_dict[move]:
+            if number != 0:
+                result_list.append(number)
+                new_board_dict[move].remove(number)
+                break
+    
+    return duplication(result_list)
+
+def duplication(list_result):
+    list_dup = []
+    answer = 0
+
+    for i in range(0, len(list_result)):
+        list_dup.append(list_result[i]) 
+        if list_dup[-1:] == list_dup[-2:-1]:
+            print(list_dup[-1:])
+            print(list_dup[-2:-1])
+            print()
+            answer += 2  
+            list_dup = list_dup[:-2]  
+
+    return answer
+            
+    

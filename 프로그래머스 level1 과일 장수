@@ -1,0 +1,11 @@
+def solution(k, m, score):
+    list_a = []
+    sum = 0
+    for i in range(k,0,-1):
+        for apple_score in score:
+            if i == apple_score:
+                list_a.append(apple_score)
+    for i in range(0,len(list_a)-m+1,m):
+        sum += (min(list_a[i:i+m]) * m)
+    print(sum)
+    return sum

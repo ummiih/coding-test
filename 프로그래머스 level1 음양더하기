@@ -1,0 +1,10 @@
+def solution(absolutes, signs):
+    for i, sign in enumerate(signs):
+        if sign == True:
+            pass
+        else:
+            absolutes[i] = -absolutes[i]
+    return sum(absolutes)
+            
+            
+            
